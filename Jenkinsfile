@@ -49,9 +49,9 @@ def build_docker_image(){
 
 def deploy(String environment){
     echo "Deployment triggered on ${environment} environment.."
-    sh "docker-compose stop python-greetings-${environment}"
-    sh "docker-compose rm python-greetings-${environment}"
-    sh "docker-compose up -d python-greetings-${environment}"
+    sh "docker-compose stop greetings-app-${environment}"
+    sh "docker-compose rm greetings-app-${environment}"
+    sh "docker-compose up -d greetings-app-${environment}"
 }
 
 def run_api_tests(String environment){
