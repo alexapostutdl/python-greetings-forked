@@ -57,5 +57,6 @@ def deploy(String environment){
 
 def run_api_tests(String environment){
     echo "API tests triggered on ${environment} environment.."
-    sh "ls"
+    sh "docker pull alexapostu/api-tests:latest"
+    sh "docker run --network=host --rm alexapostu/api-tests:latest run greetings greetings_${environment}"
 }
